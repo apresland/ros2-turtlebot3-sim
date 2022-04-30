@@ -14,18 +14,23 @@ The first thing we need to do is to clone this repository contaning the tutorial
 git clone ros2-turtlebot3-sim
 ```
 
-## 2. Build the docker image
-Once the clone is complete enter the directory and build the docker image. This can take a while so better start it early and get on with something else!
-```
-cd ros2-turtlebot3-sim
-docker build -t turtlebot3 .
-```
+## 2. Get the docker image
+
+* Option 1: Pull from Dockerhub.  
+Use the prebuilt image from dockerhub. This is the quickest option and lets you get going now by running the command  
+```docker pull andrewpresland/ros2-turtlebot3-sim:latest```
+
+
+* Option 2: Build it yourself.  
+Enter the repository directory and build the docker image. Navigate to the repositiry directory ```ros2-turtlebot3-sim``` and run the command  
+```docker build -t turtlebot3 .```
 
 ## 3. Run the container
 Once the image is built run the container and when the image has booted go to http://127.0.0.1:6080/ in any browser to be greeted by the VNC desktop.
 ```
 docker run -it -p 6080:80 turtlebot3
 ```
+![](/assets/vnc-desktop.png?raw=true "VNC desktop")
 
 ## 4. Install the TurtleBot3 simulation
 One last thing needs to be done before we can launch the simulation and that is to compile and install the TurtleBot3 Gazebo simulation packages. The source code is already intalled in the Docker image so we just need to open a terminal in VNC desktop.
@@ -53,6 +58,8 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 Change the simulation by launching with different worlds:
 * ```turtlebot3_house.launch.py```
 * ```turtlebot3_world.launch.py```
+
+![](/assets/gazebo-sim.png?raw=true "Gazebo simulation")
 
 ## 6. Interact with the TurtleBot3
 Now start another LX Terminal and setup the environment once again
