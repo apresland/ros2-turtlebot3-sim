@@ -1,0 +1,24 @@
+[submodule "workspace/src/ros_tutorials"]
+	path = workspace/src/ros_tutorials
+	url = https://github.com/ros/ros_tutorials.git
+	branch = galactic-devel
+[submodule "workspace/src/turtlebot3"]
+	path = workspace/src/turtlebot3
+	url = https://github.com/ROBOTIS-GIT/turtlebot3.git
+	branch = galactic-devel
+[submodule "workspace/src/turtlebot3_msgs"]
+	path = workspace/src/turtlebot3_msgs
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_msgs.git
+	branch = galactic-devel
+[submodule "workspace/src/turtlebot3_simulations"]
+	path = workspace/src/turtlebot3_simulations
+	url = https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git
+	branch = galactic-devel
+[submodule "workspace/src/DynamixelSDK"]
+	path = workspace/src/DynamixelSDK
+	url = https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+	branch = galactic-devel
+[submodule "workspace/src/hls_lfcd_lds_driver"]
+	path = workspace/src/hls_lfcd_lds_driver
+	url = https://github.com/ROBOTIS-GIT/hls_lfcd_lds_driver.git
+	branch = galactic-devel

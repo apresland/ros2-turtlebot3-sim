@@ -25,12 +25,11 @@ RUN apt-get update -q && \
     rosdep init && \
     rm -rf /var/lib/apt/lists/*
 
-RUN sudo apt-get update -q && \
-    apt-get install ros-${ROS_DISTRO}-turtlesim && \
-    apt-get install ~nros-galactic-rqt* && \
-    apt-get install ros-${ROS_DISTRO}-ros2bag && \
-    apt-get install ros-${ROS_DISTRO}-rosbag2-storage-default-plugins && \
-    rm -rf /var/lib/apt/lists/*
+#RUN sudo apt-get update -q && \
+#    apt-get install ros-${ROS_DISTRO}-turtlesim && \
+#    apt-get install ros-${ROS_DISTRO}-rqt* && \
+#    apt-get install ros-${ROS_DISTRO}-ros2bag && \
+#    apt-get install ros-${ROS_DISTRO}-rosbag2-storage-default-plugins
 
 RUN gosu ubuntu rosdep update && \
     grep -F "source /opt/ros/${ROS_DISTRO}/setup.bash" /home/ubuntu/.bashrc || echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/ubuntu/.bashrc && \
@@ -39,14 +38,3 @@ RUN gosu ubuntu rosdep update && \
 RUN sed -i "s#location ~ .*/(api/.*|websockify) {#location ~ .*/(api/.*|websockify|resize) {#" /etc/nginx/sites-enabled/default
 
 ENV USER ubuntu
-
-WORKDIR /home/ubuntu/workspace
-
-RUN wget https://raw.githubusercontent.com/ROBOTIS-GIT/turtlebot3/ros2/turtlebot3.repos
-RUN mkdir src
-RUN vcs import src < turtlebot3.repos
-
-RUN touch setup.bash
-RUN echo 'source /home/ubuntu/workspace/install/setup.bash' >> setup.bash
-RUN echo 'export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/ubuntu/workspace/src/turtlebot3/turtlebot3_simulations/turtlebot3_gazebo/models' >> setup.bash
-RUN echo 'export TURTLEBOT3_MODEL=burger' >> setup.bash
