@@ -1,3 +1,0 @@
-[submodule "workspace/src/ros_tutorials"]
-	path = workspace/src/ros_tutorials
-	url = https://github.com/ros/ros_tutorials.git
