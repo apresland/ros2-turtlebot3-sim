@@ -25,6 +25,13 @@ RUN apt-get update -q && \
     rosdep init && \
     rm -rf /var/lib/apt/lists/*
 
+RUN sudo apt-get update -q && \
+    apt-get install ros-${ROS_DISTRO}-turtlesim && \
+    apt-get install ~nros-galactic-rqt* && \
+    apt-get install ros-${ROS_DISTRO}-ros2bag && \
+    apt-get install ros-${ROS_DISTRO}-rosbag2-storage-default-plugins && \
+    rm -rf /var/lib/apt/lists/*
+
 RUN gosu ubuntu rosdep update && \
     grep -F "source /opt/ros/${ROS_DISTRO}/setup.bash" /home/ubuntu/.bashrc || echo "source /opt/ros/${ROS_DISTRO}/setup.bash" >> /home/ubuntu/.bashrc && \
     sudo chown ubuntu:ubuntu /home/ubuntu/.bashrc

@@ -28,7 +28,7 @@ Enter the repository directory and build the docker image. Navigate to the repos
 ## 3. Run the container
 Once the image is built run the container and when the image has booted go to http://127.0.0.1:6080/ in any browser to be greeted by the VNC desktop.
 ```
-docker run -it -p 6080:80 turtlebot3
+docker run --rm -it -p 6080:80 turtlebot3
 ```
 ![](/assets/vnc-desktop.png?raw=true "VNC desktop")
 
@@ -70,3 +70,6 @@ Launch keyboard teleop and use the keys (a,w,d,x,s) as instructed to send comman
 ```
 ros2 run turtlebot3_teleop teleop_keyboard
 ```
+
+## 7. Tutorials
+Look at the [ROS2 Tutorials](https://docs.ros.org/en/galactic/Tutorials.html) and work through some of them but skip the "Configuration" and "rosqt" sections.
