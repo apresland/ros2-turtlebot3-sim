@@ -28,7 +28,7 @@ Enter the repository directory and build the docker image. Navigate to the repos
 ## 3. Run the container
 Once the image is built run the container and when the image has booted go to http://127.0.0.1:6080/ in any browser to be greeted by the VNC desktop.
 ```
-docker run --rm -it -v $PWD/workspace:/home/ubuntu/workspace -p 6080:80 turtlebot3
+docker run --rm -it -v $PWD/workspace:/home/ubuntu/dev_ws -p 6080:80 turtlebot3
 ```
 ![](/assets/vnc-desktop.png?raw=true "VNC desktop")
 
@@ -47,7 +47,7 @@ colcon build --symlink-install
 ```
 
 ## 5. Run the TurtleBot3 Gazebo simulation
-Once the install is complete make sure the environment is setup to run the simulation (make sure you are inside ```/home/ubuntu/workspace```).
+Once the install is complete make sure the environment is setup to run the simulation (make sure you are inside ```/home/ubuntu/dev_ws```).
 ```
 source ./setup.bash
 ```
