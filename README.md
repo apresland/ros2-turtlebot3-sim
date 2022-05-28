@@ -13,26 +13,39 @@ The first thing we need to do is to clone this repository contaning the tutorial
 ```
 git clone ros2-turtlebot3-sim
 ```
+Now we need to use git to update the submodules containing the ROS2 tutorials
+```
+git submodule update --init --recursive
+```
 
 ## 2. Get the docker image
 
 * Option 1: Pull from Dockerhub.  
 Use the prebuilt image from dockerhub. This is the quickest option and lets you get going now by running the command  
-```docker pull andrewpresland/ros2-turtlebot3-sim:latest```
+```
+docker pull andrewpresland/ros2-turtlebot3-sim:latest
+```
 
 
 * Option 2: Build it yourself.  
-Enter the repository directory and build the docker image. Navigate to the repositiry directory ```ros2-turtlebot3-sim``` and run the command  
-```docker build -t turtlebot3 .```
+Enter the repository directory and build the docker image. Navigate to the repositiry directory 
+```
+ros2-turtlebot3-sim
+``` 
+and run the command  
+```
+docker build -t turtlebot3 .
+```
 
 ## 3. Run the container
-Once the image is built run the container and when the image has booted go to http://127.0.0.1:6080/ in any browser to be greeted by the VNC desktop.
+Once the image is built run the container. If you are running on Windows replace ```$PWD``` with ```%cd%``` for current directory. 
 ```
-docker run --rm -it -v $PWD/workspace:/home/ubuntu/dev_ws -p 6080:80 turtlebot3
+docker run --rm -it -v $PWD/workspace:/home/ubuntu/dev_ws -p 6080:80 andrewpresland/ros2-turtlebot3-sim
 ```
+When the image has booted go to http://127.0.0.1:6080/ in any browser to be greeted by the VNC desktop goodness.
 ![](/assets/vnc-desktop.png?raw=true "VNC desktop")
 
-## 4. Install the TurtleBot3 simulation
+## 4. Build the TurtleBot3 simulation
 One last thing needs to be done before we can launch the simulation and that is to compile and install the TurtleBot3 Gazebo simulation packages. The source code is already intalled in the Docker image so we just need to open a terminal in VNC desktop.
 ```
 Menu -> System Tools -> LX Terminal.
@@ -49,7 +62,8 @@ colcon build --symlink-install
 ## 5. Run the TurtleBot3 Gazebo simulation
 Once the install is complete make sure the environment is setup to run the simulation (make sure you are inside ```/home/ubuntu/dev_ws```).
 ```
-source ./setup.bash
+source ./install/setup.bash
+source ./setenv.bash
 ```
 Finally launch a world in Gazebo
 ```

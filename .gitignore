@@ -1,3 +1,5 @@
 workspace/build/**
 workspace/log/**
 workspace/install/**
+workspace/src/my_package/**
+workspace/src/cpp_pubsub/**
