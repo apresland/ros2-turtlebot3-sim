@@ -20,10 +20,15 @@ RUN apt-get update -q && \
     apt-get install -y ros-${ROS_DISTRO}-${INSTALL_PACKAGE} \
     python3-argcomplete \
     python3-colcon-common-extensions \
-    python3-rosdep python3-vcstool \
-    ros-${ROS_DISTRO}-gazebo-ros-pkgs && \
+    python3-rosdep python3-vcstool && \
     rosdep init && \
     rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update -q && \
+    apt-get install -y \
+    ros-${ROS_DISTRO}-nav2-bringup \
+    ros-${ROS_DISTRO}-gazebo-ros-pkgs
+
 
 #RUN sudo apt-get update -q && \
 #    apt-get install ros-${ROS_DISTRO}-turtlesim && \
