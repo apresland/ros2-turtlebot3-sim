@@ -67,10 +67,17 @@ Now you can use the simulation by launching with different worlds:
 * ```turtlebot3_world.launch.py```
 * ```empty_world.launch.py```
 
+If you run into trouble because of windows `\r` characters when launching the simulation you probably need to run.
+ ```
+ dos2unix setenv_gazebo.bash
+ ```
+ This will convert the script back into Unix.
+
 ```
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 ![](/assets/gazebo-sim.png?raw=true "Gazebo simulation")
+
 
 Now its time to interact with the simulation so start another LX Terminal and setup the environment once again
 ```

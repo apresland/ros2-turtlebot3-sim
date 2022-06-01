@@ -29,6 +29,8 @@ RUN apt-get update -q && \
     ros-${ROS_DISTRO}-nav2-bringup \
     ros-${ROS_DISTRO}-gazebo-ros-pkgs
 
+RUN apt-get update -q && \
+    apt-get install -y dos2unix
 
 #RUN sudo apt-get update -q && \
 #    apt-get install ros-${ROS_DISTRO}-turtlesim && \
